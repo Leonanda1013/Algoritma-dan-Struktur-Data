@@ -1,1 +1,3 @@
-![ini gambar polinema](image.png)
+![ini gambar polinema](image.png);
+
+tes tes
