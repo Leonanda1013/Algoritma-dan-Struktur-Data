@@ -1,4 +1,4 @@
-![ini gambar polinema](image.png);
+![ini gambar polinema](Screenshot/image.png);
 
 tes tes
 
