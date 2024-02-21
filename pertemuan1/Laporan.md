@@ -2,10 +2,10 @@
 
 ![ini gambar polinema](Screenshot/download.jpg);
 
-Nama    : Vincentius L.P
-Nim     : 2341720149
-Kelas   : TI-1B
-Absen   : 29
+Nama    : Vincentius L.P;
+Nim     : 2341720149;
+Kelas   : TI-1B;
+Absen   : 29;
 
 ## 2. Praktikum
 ### 2.1 Percobaan 1: Deklarasi Class, Atribut dan Method
