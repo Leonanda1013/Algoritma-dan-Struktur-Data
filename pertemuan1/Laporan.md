@@ -1,32 +1,22 @@
-![ini gambar polinema](Screenshot/image.png);
+# JOBSHEET II
 
-tes tes
+![ini gambar polinema](Screenshot/download.jpg);
 
-ublic class Buku29 {
-    // deklarasi variable
-    String judul, pengarang;
-    int halaman, stock, harga;
+Nama    : Vincentius L.P
+Nim     : 2341720149
+Kelas   : TI-1B
+Absen   : 29
 
-    // method
-    void tampilInformasi() {
-        System.out.println("Judul: " + judul);
-        System.out.println("Pengarang: " + pengarang);
-        System.out.println("Jmlah halman: " + halaman);
-        System.out.println("Sisa Stok: " + stock);
-        System.out.println("Harga: Rp " + harga);
-    }
+## 2. Praktikum
+### 2.1 Percobaan 1: Deklarasi Class, Atribut dan Method
 
-    void terjual(int jml) {
-        stock -= jml;
+Mengimplementasikan Class Diagram berikut pada sourch code java.
 
-    }
+![alt text](Screenchot/image.png)
 
-    void restock(int jml) {
-        stock += jml;
-    }
+#### 2.1.1 Langkah-langkah Percobaan
 
-    void gantiHarga(int hrg) {
-        harga = hrg;
+![alt text](Screenshot/ss1.png)
 
-    }
-}
+#### 2.1.2 Verifikasi Hasil Percobaan
+
