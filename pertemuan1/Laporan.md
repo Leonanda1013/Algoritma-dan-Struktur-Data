@@ -35,10 +35,10 @@ Eror tersebut dikarenakan tidak adanya fungsi main pada file java tersebut.
     *<b>Jwb</b>: menampilkan informasi, menghitung penjualan, menghitung restok, menghitung ganti harga<br>
 4. Perhatikan method terjual() yang terdapat di dalam class Buku. Modifikasi isi method tersebut sehingga proses pengurangan hanya dapat dilakukan jika stok masih ada (lebih besar dari 0)!<br>
     *<b>Jwb</b>: <br>
-    Perubahan kode program
-    ![!\[alt text\](image.png)](Screenshot/no4.png)
-    Perubahan pada output(termasuk output percobaan 2)
-    ![!\[alt text\](image.png)](Screenshot/2.png)
+    Perubahan kode program<br>
+    ![!\[alt text\](image.png)](Screenshot/no4.png)<br>
+    Perubahan pada output(termasuk output percobaan 2)<br>
+    ![!\[alt text\](image.png)](Screenshot/2.png)<br>
 
 5. Menurut Anda, mengapa method restock() mempunyai satu parameter berupa bilangan int?<br>
     *<b>Jwb</b>: Method restock() memiliki satu parameter berupa bilangan integer karena parameter tersebut mengindikasikan jumlah tambahan stok yang akan ditambahkan ke dalam persediaan buku. Dengan memberikan parameter berupa bilangan integer, pengguna dapat secara fleksibel menentukan seberapa banyak stok yang ingin ditambahkan saat melakukan restok.<br>
