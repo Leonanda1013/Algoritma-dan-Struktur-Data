@@ -43,3 +43,31 @@ Eror tersebut dikarenakan tidak adanya fungsi main pada file java tersebut.
 5. Menurut Anda, mengapa method restock() mempunyai satu parameter berupa bilangan int?<br>
     *<b>Jwb</b>: Method restock() memiliki satu parameter berupa bilangan integer karena parameter tersebut mengindikasikan jumlah tambahan stok yang akan ditambahkan ke dalam persediaan buku. Dengan memberikan parameter berupa bilangan integer, pengguna dapat secara fleksibel menentukan seberapa banyak stok yang ingin ditambahkan saat melakukan restok.<br>
 
+### 2.2 Percobaan 2: Instansiasi Object, serta Mengakses Atribut dan Method
+
+Melakukan proses instansiasi.<br>
+
+#### 2.2.1 Langkah-langkah Percobaan
+
+<b>_Kode Program_</b>
+
+
+public class BukuMain29 {
+    public static void main(String[] args) {
+        Buku29 bk1 = new Buku29();
+        bk1.judul = "Today Ends Tomorrow Comes";
+        bk1.pengarang = "Denanda Pratiwi";
+        bk1.halaman = 198;
+        bk1.stock = 0;
+        bk1.harga = 71000;
+
+        bk1.tampilInformasi();
+        bk1.terjual(5);
+        bk1.gantiHarga(60000);
+        bk1.tampilInformasi();
+
+    }
+}
+
+
+#### 2.2.2 Verifikasi Hasil Percobaan
