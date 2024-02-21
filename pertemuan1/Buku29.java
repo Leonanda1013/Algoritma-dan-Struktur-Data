@@ -13,9 +13,12 @@ public class Buku29 {
     }
 
     void terjual(int jml) {
-        stock -= jml;
-
-    }
+        if (stock > 0 && stock >= jml) {
+            stock -= jml;
+        } else {
+            System.out.println("Stok tidak mencukupi!");
+        }
+    } // modifikasi kode program
 
     void restock(int jml) {
         stock += jml;

@@ -27,12 +27,19 @@ Eror tersebut dikarenakan tidak adanya fungsi main pada file java tersebut.
 #### 2.1.3 Pertanyaan
 
 1. Sebutkan dua karakteristik class atau object!<br>
-    *Jwb: mempunyai sesuatu & melakukan sesuatu<br>
+    *<b>Jwb</b>: mempunyai sesuatu & melakukan sesuatu<br>
 2. Perhatikan class Buku pada Praktikum 1 tersebut, ada berapa atribut yang dimiliki oleh class Buku? Sebutkan apa saja atributnya!<br>
-    *Jwb: judul, pengarang, halaman, stock, harga<br>
+    *<b>Jwb</b>: judul, pengarang, halaman, stock, harga<br>
 
 3. Ada berapa method yang dimiliki oleh class tersebut? Sebutkan apa saja methodnya!<br>
-    *Jwb: menampilkan informasi, menghitung penjualan, menghitung restok, menghitung ganti harga<br>
-4. Perhatikan method terjual() yang terdapat di dalam class Buku. Modifikasi isi method tersebut sehingga proses pengurangan hanya dapat dilakukan jika stok masih ada (lebih besar dari 0)!
-5. Menurut Anda, mengapa method restock() mempunyai satu parameter berupa bilangan int?
+    *<b>Jwb</b>: menampilkan informasi, menghitung penjualan, menghitung restok, menghitung ganti harga<br>
+4. Perhatikan method terjual() yang terdapat di dalam class Buku. Modifikasi isi method tersebut sehingga proses pengurangan hanya dapat dilakukan jika stok masih ada (lebih besar dari 0)!<br>
+    *<b>Jwb</b>: <br>
+    Perubahan kode program
+    ![!\[alt text\](image.png)](Screenshot/no4.png)
+    Perubahan pada output(termasuk output percobaan 2)
+    ![!\[alt text\](image.png)](Screenshot/2.png)
+
+5. Menurut Anda, mengapa method restock() mempunyai satu parameter berupa bilangan int?<br>
+    *<b>Jwb</b>: Method restock() memiliki satu parameter berupa bilangan integer karena parameter tersebut mengindikasikan jumlah tambahan stok yang akan ditambahkan ke dalam persediaan buku. Dengan memberikan parameter berupa bilangan integer, pengguna dapat secara fleksibel menentukan seberapa banyak stok yang ingin ditambahkan saat melakukan restok.<br>
 

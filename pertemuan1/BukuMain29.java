@@ -5,7 +5,7 @@ public class BukuMain29 {
         bk1.judul = "Today Ends Tomorrow Comes";
         bk1.pengarang = "Denanda Pratiwi";
         bk1.halaman = 198;
-        bk1.stock = 13;
+        bk1.stock = 0;
         bk1.harga = 71000;
 
         bk1.tampilInformasi();
