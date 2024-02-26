@@ -28,4 +28,42 @@ public class Buku29 {
         harga = hrg;
 
     }
+
+    public Buku29() {
+
+    }
+
+    public Buku29(String jud, String pg, int hal, int stock, int har) {
+        judul = jud;
+        pengarang = pg;
+        halaman = hal;
+        this.stock = stock;// Apabila nama parameter sama dengan nama atribut, maka untuk merujuk pada
+                           // variabel atribut ditambahkan sintaks this di depan nama atribut
+        harga = har;
+    }
+
+    int hitungHargaTotal(int jml) {
+        int hargaTotal = jml *= harga;
+        return hargaTotal;
+    }
+
+    int hitungDiskon(int hargaTotal) {
+        int diskon;
+        if (hargaTotal > 150000) {
+            diskon = hargaTotal *= 12 / 100;
+
+        } else if (75000 > hargaTotal && 150000 < hargaTotal) {
+            diskon = hargaTotal *= 5 / 100;
+
+        } else {
+            diskon = 0;
+        }
+        return diskon;
+    }
+
+    int hitungHargaBayar(int diskon, int hargaTotal) {
+        int hargaBayar = hargaTotal - diskon;
+        return hargaBayar;
+    }
+
 }
