@@ -1,3 +1,5 @@
+package pertemuan2;
+
 public class Buku29 {
     // deklarasi variable
     String judul, pengarang;

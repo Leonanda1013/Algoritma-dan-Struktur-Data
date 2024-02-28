@@ -1,3 +1,4 @@
+package pertemuan2;
 
 public class BukuMain29 {
     public static void main(String[] args) {

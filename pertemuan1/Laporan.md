@@ -1,6 +1,7 @@
-# JOBSHEET II
+# JOBSHEET I : KONSEP DASAR PEMROGRAMAN
 
-![ini gambar polinema](Screenshot/download.jpg);
+
+![!\[alt text\](image.png)](SS/image.png)
 
 Nama    : Vincentius L.P<br>
 Nim     : 2341720149<br>
@@ -8,240 +9,401 @@ Kelas   : TI-1B<br>
 Absen   : 29<br>
 
 ## 2. Praktikum
-### 2.1 Percobaan 1: Deklarasi Class, Atribut dan Method
-
-Mengimplementasikan Class Diagram berikut pada sourch code java.
-
-![alt text](Screenshot/image.png)
-
-#### 2.1.1 Langkah-langkah Percobaan
-
-![alt text](Screenshot/ss1.png)
-
-#### 2.1.2 Verifikasi Hasil Percobaan
-
-![alt text](<Screenshot/Screenshot 2024-02-21 113420.png>)
-
-Eror tersebut dikarenakan tidak adanya fungsi main pada file java tersebut.
-
-#### 2.1.3 Pertanyaan
-
-1. Sebutkan dua karakteristik class atau object!<br>
-    *<b>Jwb</b>: mempunyai sesuatu & melakukan sesuatu<br>
-2. Perhatikan class Buku pada Praktikum 1 tersebut, ada berapa atribut yang dimiliki oleh class Buku? Sebutkan apa saja atributnya!<br>
-    *<b>Jwb</b>: judul, pengarang, halaman, stock, harga<br>
-
-3. Ada berapa method yang dimiliki oleh class tersebut? Sebutkan apa saja methodnya!<br>
-    *<b>Jwb</b>: menampilkan informasi, menghitung penjualan, menghitung restok, menghitung ganti harga<br>
-4. Perhatikan method terjual() yang terdapat di dalam class Buku. Modifikasi isi method tersebut sehingga proses pengurangan hanya dapat dilakukan jika stok masih ada (lebih besar dari 0)!<br>
-    *<b>Jwb</b>: <br>
-    Perubahan kode program<br>
-    ![!\[alt text\](image.png)](Screenshot/no4.png)<br>
-    Perubahan pada output(termasuk output percobaan 2)<br>
-    ![!\[alt text\](image.png)](Screenshot/2.png)<br>
-
-    ket: kondisi pertama dibuat agar jika stok lebih dari 0. kondisi kedua agar jika penjualan lebih dari stok, sisa stok tidak negtif.<br>
-
-5. Menurut Anda, mengapa method restock() mempunyai satu parameter berupa bilangan int?<br>
-    *<b>Jwb</b>: Method restock() memiliki satu parameter berupa bilangan integer karena parameter tersebut mengindikasikan jumlah tambahan stok yang akan ditambahkan ke dalam persediaan buku. Dengan memberikan parameter berupa bilangan integer, pengguna dapat secara fleksibel menentukan seberapa banyak stok yang ingin ditambahkan saat melakukan restok.<br>
-
-### 2.2 Percobaan 2: Instansiasi Object, serta Mengakses Atribut dan Method
-
-Melakukan proses instansiasi.<br>
-
-#### 2.2.1 Langkah-langkah Percobaan
-
-<b>_Kode Program_</b>
+### 2.1 Pemilihan 
+#### Kode Program
 
 ```java
-public class BukuMain29 {
+package pertemuan1;
+
+import java.util.Scanner;
+
+public class HitungNilaiMahasiswa {
+
     public static void main(String[] args) {
-        Buku29 bk1 = new Buku29();
-        bk1.judul = "Today Ends Tomorrow Comes";
-        bk1.pengarang = "Denanda Pratiwi";
-        bk1.halaman = 198;
-        bk1.stock = 0;
-        bk1.harga = 71000;
+        Scanner input = new Scanner(System.in);
 
-        bk1.tampilInformasi();
-        bk1.terjual(5);
-        bk1.gantiHarga(60000);
-        bk1.tampilInformasi();
+        System.out.println("Masukkan nilai tugas (0-100): ");
+        int nilaiTugas = input.nextInt();
+        if (!isValid(nilaiTugas)) {
+            System.out.println("Nilai tidak valid");
+            return;
+        }
 
+        System.out.println("Masukkan nilai kuis (0-100): ");
+        int nilaiKuis = input.nextInt();
+        if (!isValid(nilaiKuis)) {
+            System.out.println("Nilai tidak valid");
+            return;
+        }
+
+        System.out.println("Masukkan nilai UTS (0-100): ");
+        int nilaiUTS = input.nextInt();
+        if (!isValid(nilaiUTS)) {
+            System.out.println("Nilai tidak valid");
+            return;
+        }
+
+        System.out.println("Masukkan nilai UAS (0-100): ");
+        int nilaiUAS = input.nextInt();
+        if (!isValid(nilaiUAS)) {
+            System.out.println("Nilai tidak valid");
+            return;
+        }
+
+        double nilaiAkhir = hitungNilaiAkhir(nilaiTugas, nilaiKuis, nilaiUTS, nilaiUAS);
+        String nilaiHuruf = konversiNilaiHuruf(nilaiAkhir);
+        String keterangan = (nilaiHuruf.equals("TIDAK LULUS") || nilaiHuruf.equals("D") || nilaiHuruf.equals("E"))
+                ? "TIDAK LULUS"
+                : "LULUS";
+
+        System.out.println("Nilai akhir: " + nilaiAkhir);
+        System.out.println("Nilai huruf: " + nilaiHuruf);
+        System.out.println("Keterangan: " + keterangan);
+
+    }
+
+    public static boolean isValid(int nilai) {
+        return nilai >= 0 && nilai <= 100;
+    }
+
+    public static double hitungNilaiAkhir(int tugas, int kuis, int uts, int uas) {
+        return 0.2 * tugas + 0.2 * kuis + 0.3 * uts + 0.4 * uas;
+    }
+
+    public static String konversiNilaiHuruf(double nilai) {
+        if (nilai > 100 || nilai < 0) {
+            return "Nilai tidak valid";
+        } else if (nilai > 80) {
+            return "A";
+        } else if (nilai > 73) {
+            return "B+";
+        } else if (nilai > 65) {
+            return "B";
+        } else if (nilai > 60) {
+            return "C+";
+        } else if (nilai > 50) {
+            return "C";
+        } else if (nilai > 39) {
+            return "D";
+        } else {
+            return "E";
+        }
+
+    }
+
+}
+```
+
+### 2.2 Perulangan
+
+```java
+package pertemuan1;
+
+import java.util.Scanner;
+
+public class DeretBilangan {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("Input NIM:");
+        String nim = input.nextLine();
+
+        int n = Integer.parseInt(nim.substring(nim.length() - 2)); // Mengambil 2 digit terakhir dari NIM
+        if (n < 10) {
+            n += 10;
+        }
+
+        for (int i = 1; i <= n; i++) {
+            if (i == 6 || i == 10) {
+                continue; // Lewatkan angka 6 dan 10
+            }
+            if (i % 2 == 0) {
+                System.out.print(i + " ");
+            } else {
+                System.out.print("* ");
+            }
+        }
+
+        input.close();
     }
 }
 ```
 
-#### 2.2.2 Verifikasi Hasil Percobaan
-![!\[alt text\](image.png)](<Screenshot/verivikasi 2.png>)
+### 2.3 Array
 
-#### 2.2.3 Pertanyaan
-1. Pada class BukuMain, tunjukkan baris kode program yang digunakan untuk proses instansiasi!<br>
- *<b>Jwb</b>: <br>
-    <b>Kode Program</b>
+```java
+package pertemuan1;
 
-    ```java
-    Buku29 bk1 = new Buku29();
-    ```
-    dan objek yang dihasilkan adalah bk1. 
-<br>
+import java.util.Scanner;
 
-2. Bagaimana cara mengakses atribut dan method dari suatu objek?<br>
-    *<b>Jwb</b>: Kita dapat mengakses atribut dan method dari suatu objek menggunakan operator (.) (titik).<br>
-    Contoh: 
+public class Array29 {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        String[] mataKuliah = { "Pancasila", "Konsep Teknologi Informasi", "Critical Thinking and Problem Solving",
+                "Matematika Dasar", "Bahasa Inggris", "Dasar Pemrograman", "Praktikum Dasar Pemrograman",
+                "Keselamatan dan Kesehatan Kerja" };
+        double[] sks = { 2, 2, 2, 3, 2, 2, 3, 2 };
+
+        System.out.println("Program Menghitung IP Semester");
+        System.out.println("==============================");
+
+        double[] nilaiAngka = new double[mataKuliah.length];
+
+        for (int i = 0; i < mataKuliah.length; i++) {
+            System.out.print("Masukkan nilai Angka untuk MK " + mataKuliah[i] + ": ");
+            nilaiAngka[i] = input.nextDouble();
+        }
+
+        System.out.println("\nHasil Konversi Nilai");
+        System.out.println("==============================");
+        System.out.printf("%-40s %-15s %-15s %-15s\n", "MK", "Nilai Angka", "Nilai Huruf", "Bobot Nilai");
+
+        double totalBobotSks = 0;
+        double totalSks = 0; 
+
+        for (int i = 0; i < mataKuliah.length; i++) {
+            String nilaiHuruf = konversiNilaiHuruf(nilaiAngka[i]);
+            double bobotNilai = konversiNilaiSetara(nilaiAngka[i]);
+            double bobotSks = bobotNilai * sks[i];
+            totalBobotSks += bobotSks;
+            totalSks += sks[i];
+            System.out.printf("%-40s %-15.2f %-15s %-15.2f\n", mataKuliah[i], nilaiAngka[i], nilaiHuruf,
+                    bobotNilai);
+        }
+
+        double ipSemester = totalBobotSks / totalSks;
+
+        System.out.println("\nIP Semester Anda: " + String.format("%.2f", ipSemester));
+    }
+
+    public static String konversiNilaiHuruf(double nilaiAngka) {
+        if (nilaiAngka >= 80) {
+            return "A";
+        } else if (nilaiAngka >= 75) {
+            return "B+";
+        } else if (nilaiAngka >= 65) {
+            return "B";
+        } else if (nilaiAngka >= 60) {
+            return "C+";
+        } else if (nilaiAngka >= 50) {
+            return "C";
+        } else if (nilaiAngka >= 40) {
+            return "D";
+        } else {
+            return "E";
+        }
+    }
+
+    public static double konversiNilaiSetara(double nilaiAngka) {
+        if (nilaiAngka >= 80) {
+            return 4;
+        } else if (nilaiAngka >= 75) {
+            return 3.5;
+        } else if (nilaiAngka >= 65) {
+            return 3;
+        } else if (nilaiAngka >= 60) {
+            return 2.5;
+        } else if (nilaiAngka >= 50) {
+            return 2;
+        } else if (nilaiAngka >= 40) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+}
+```
+
+
+### 2.4 Fungsi
+
+```java
+package pertemuan1;
+
+public class RoyalGarden {
+    private static int[][] stockBunga = {
+        {10, 5, 15, 7},
+        {6, 11, 9, 12},
+        {2, 10, 10, 5},
+        {5, 7, 12, 9}
+    };
     
-    ```java
-    bk1.stock = 0;
-    ```
+    private static final int[] hargaBunga = {75000, 50000, 60000, 10000}; // Harga bunga dalam urutan yang sama dengan nama bunga
 
-3. Mengapa hasil output pemanggilan method tampilInformasi() pertama dan kedua berbeda?<br>
-    *<b>Jwb</b>: Dalam contoh di atas, hasil output dari pemanggilan tampilInformasi() pertama dan kedua berbeda karena telah terjadi perubahan pada atribut stok dan harga di antara kedua pemanggilan tersebut.<br>
-
-
-
-### 2.3 Percobaan 3: Membuat Konstruktor
-#### 2.3.1 Langkah-langkah Percobaan
-Kode Program pada File Buku29.java
-```java
-public Buku29() {
-
-    }
-
-    public Buku29(String jud, String pg, int hal, int stock, int har) {
-        judul = jud;
-        pengarang = pg;
-        halaman = hal;
-        this.stock = stock;// Apabila nama parameter sama dengan nama atribut, maka untuk merujuk pada
-                           // variabelatribut ditambahkan sintaks this di depan nama atribut
-        harga = har;
-    }
-```
-
-Kode Program pada BukuMain29.java
-
-```java
-Buku29 bk2 = new Buku29("Self Reward", "Mheera ayesha", 160, 29, 59000);
-        bk2.terjual(11);
-        bk2.tampilInformasi();
-```
-
-#### 2.3.2 Verifikasi Hasil Percobaan
-![!\[alt text\](image-1.png)](<Screenshot/validasi 3.png>)
-
-#### 2.3.3 Pertanyaan
-1. Pada class Buku di Percobaan 3, tunjukkan baris kode program yang digunakan untuk mendeklarasikan konstruktor berparameter!<br>
-    *<b>Jwb</b>: 
-
-    ```java
-    public Buku29(String jud, String pg, int hal, int stock, int har) {
-        judul = jud;
-        pengarang = pg;
-        halaman = hal;
-        this.stock = stock;// Apabila nama parameter sama dengan nama atribut, maka untuk merujuk pada
-                           // variabelatribut ditambahkan sintaks this di depan nama atribut
-        harga = har;
-    }
-    ```
-
-2. Perhatikan class BukuMain. Apa sebenarnya yang dilakukan pada baris program berikut?
-
-```java
-Buku29 bk2 = new Buku29("Self Reward", "Mheera ayesha", 160, 29, 59000);
-```
-<br>
-    *<b>Jwb</b>:  baris program tersebut membuat objek baru bk2 dari kelas Buku29 dengan memberikan nilai-nilai tertentu untuk atribut-atributnya melalui constructor yang menerima lima parameter.
-<br>
-3. Hapus konstruktor default pada class Buku, kemudian compile dan run program. Bagaimana
-hasilnya? Jelaskan mengapa hasilnya demikian!<br>
-    *<b>Jwb</b>: <br>
-
-![alt text](Screenshot/image-1.png)
-    <br>
-    menghapus konstruktor default dari class Buku29, maka Anda tidak akan dapat membuat objek menggunakan sintaks new Buku29(), karena tidak ada konstruktor default yang tersedia untuk digunakan.
-
-<br>
-4. Setelah melakukan instansiasi object, apakah method di dalam class Buku harus diakses
-secara berurutan? Jelaskan alasannya!<br>
-    *<b>Jwb</b>: 
-Tidak, method di dalam class Buku tidak harus diakses secara berurutan setelah melakukan instansiasi objek dari class tersebut karena setiap method memiliki tanggung jawab dan fungsionalitasnya sendiri. <br>
-
-5. Buat object baru dengan nama buku<NamaMahasiswa> menggunakan konstruktor berparameter dari class Buku!
-
-```java
-Buku29 bukuVincentius = new Buku29("Harry Potter", "Jk.Rowling", 1021, 17, 121000);
-        bk2.terjual(11);
-        bk2.tampilInformasi();
-```
-
-
-### 2.4 Latihan Praktikum
-1. Pada class Buku yang telah dibuat, tambahkan tiga method yaitu hitungHargaTotal(),
-hitungDiskon(), dan hitungHargaBayar().
-
-```java
-int hitungHargaTotal(int jml){
-        int hargaTotal= jml*=harga;
-        return hargaTotal;
-    }
-
-    int hitungDiskon(int hargaTotal){
-        int diskon;
-        if(hargaTotal>150000){
-            diskon = hargaTotal*=12/100;
-
-        } else if(75000>hargaTotal&&150000<hargaTotal) {
-            diskon = hargaTotal*=5/100;
-
-        } else{
-            diskon = 0;
+    public static void main(String[] args) {
+        // 1. Menampilkan pendapatan setiap cabang jika semua bunga habis terjual
+        System.out.println("Pendapatan setiap cabang jika semua bunga habis terjual:");
+        for (int i = 0; i < stockBunga.length; i++) {
+            int totalPendapatan = 0;
+            for (int j = 0; j < stockBunga[i].length; j++) {
+                totalPendapatan += stockBunga[i][j] * hargaBunga[j];
+            }
+            System.out.println("Cabang RoyalGarden " + (i + 1) + ": " + totalPendapatan);
         }
-        return diskon;
-    }
 
-    int hitungHargaBayar(int diskon, int hargaTotal){
-        int hargaBayar = hargaTotal-diskon;
-        return hargaBayar;
-    }
-```
-
-2. Buat program berdasarkan class diagram berikut ini!
-![!\[alt text\](image-1.png)](Screenshot/image-2.png)
-
-```java
-public class Dragon {
-    int x, y, width, height;
-
-    void moveLeft() {
-        x -= 1;
-        if (x < 0 || x > width) {
-            detectCollision(x, 0);
+        // 2. Mengetahui jumlah Stock setiap jenis bunga pada cabang royalgarden 4
+        System.out.println("\nJumlah Stock setiap jenis bunga pada cabang RoyalGarden 4:");
+        for (int j = 0; j < stockBunga[3].length; j++) {
+            System.out.println(getNamaBunga(j) + ": " + stockBunga[3][j]);
+        }
+        
+        // 3. Informasi tambahan: pengurangan stock karena bunga mati
+        penguranganStockBunga(3, 1, 2, 0, 5); // Pengurangan stock pada cabang RoyalGarden 4
+        System.out.println("\nJumlah Stock setiap jenis bunga pada cabang RoyalGarden 4 setelah bunga mati:");
+        for (int j = 0; j < stockBunga[3].length; j++) {
+            System.out.println(getNamaBunga(j) + ": " + stockBunga[3][j]);
         }
     }
 
-    void moveRight() {
-        x = +1;
-        if (x < 0 || x > width) {
-            detectCollision(x, 0);
+    public static String getNamaBunga(int index) {
+        switch (index) {
+            case 0:
+                return "Aglonema";
+            case 1:
+                return "Keladi";
+            case 2:
+                return "Alocasia";
+            case 3:
+                return "Mawar";
+            default:
+                return "";
         }
     }
 
-    void moveDown() {
-        y += 1;
-        if (x < 0 || x > width) {
-            detectCollision(0, y);
+    public static void penguranganStockBunga(int cabang, int aglonema, int keladi, int alocasia, int mawar) {
+        stockBunga[cabang - 1][0] -= aglonema;
+        stockBunga[cabang - 1][1] -= keladi;
+        stockBunga[cabang - 1][2] -= alocasia;
+        stockBunga[cabang - 1][3] -= mawar;
+    }
+}
+```
+
+
+## 3. Tugas
+### 1.
+
+```java
+package pertemuan1;
+import java.util.Scanner;
+
+public class Tugas129 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        char[] KODE = {'A', 'B', 'D', 'E', 'F', 'G', 'H', 'L', 'N', 'T'};
+        char[][] KOTA = {
+            { 'B', 'A', 'N', 'T', 'E', 'N' },
+            { 'J', 'A', 'K', 'A', 'R', 'T', 'A' },
+            { 'B', 'A', 'N', 'D', 'U', 'N', 'G' },
+            { 'C', 'I', 'R', 'E', 'B', 'O', 'N' },
+            { 'B', 'O', 'G', 'O', 'R' },
+            { 'P', 'E', 'K', 'A', 'L', 'O', 'N', 'G', 'A', 'N' },
+            { 'S', 'E', 'M', 'A', 'R', 'A', 'N', 'G' },
+            { 'S', 'U', 'R', 'A', 'B', 'A', 'Y', 'A' },
+            { 'M', 'A', 'L', 'A', 'N', 'G' },
+            { 'T', 'E', 'G', 'A', 'L' }
+        };
+        
+        System.out.print("Masukkan kode plat nomor : ");
+        char kode = scanner.next().charAt(0);
+
+        int index = -1;
+        
+        for (int i = 0; i < KODE.length; i++) {
+            if (KODE[i] == kode) {
+                index = i;
+                break;
+            }
+        }
+
+        if (index != -1) {
+            
+            System.out.println("Kota yang sesuai dengan kode plat nomor " + kode + " adalah : ");
+            for (int i = 0; i < KOTA[index].length; i++) {
+                System.out.print(KOTA[index][i] + " "); 
+            }
+        } else {
+            System.out.println("Kode plat nomor tidak valid.");
+        }
+    }
+}
+```
+
+### 2.
+
+```java
+package pertemuan1;
+
+import java.util.Scanner;
+
+public class Tugas229 {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        while (true) {
+            System.out.println("Menu:");
+            System.out.println("1. Hitung Kecepatan");
+            System.out.println("2. Hitung Jarak");
+            System.out.println("3. Hitung Waktu");
+            System.out.println("4. Keluar");
+            System.out.print("Pilih menu (1/2/3/4): ");
+            int pilihan = input.nextInt();
+
+            switch (pilihan) {
+                case 1:
+                    hitungKecepatan();
+                    break;
+                case 2:
+                    hitungJarak();
+                    break;
+                case 3:
+                    hitungWaktu();
+                    break;
+                case 4:
+                    System.out.println("Terima kasih!");
+                    input.close();
+                    return;
+                default:
+                    System.out.println("Pilihan tidak valid!");
+            }
         }
     }
 
-    void moveUp() {
-        y -= 1;
-        if (x < 0 || x > width) {
-            detectCollision(0, y);
-        }
+    public static void hitungKecepatan() {
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Masukkan jarak (m): ");
+        double s = input.nextDouble();
+        System.out.print("Masukkan waktu (s): ");
+        double t = input.nextDouble();
+
+        double v = s / t;
+        System.out.println("Kecepatan adalah: " + v + " m/s");
     }
 
-    void detectCollision(int x, int y) {
-        System.out.println("Game Over");
+    public static void hitungJarak() {
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Masukkan kecepatan (m/s): ");
+        double v = input.nextDouble();
+        System.out.print("Masukkan waktu (s): ");
+        double t = input.nextDouble();
+
+        double s = v * t;
+        System.out.println("Jarak adalah: " + s + " meter");
     }
 
+    public static void hitungWaktu() {
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Masukkan jarak (m): ");
+        double s = input.nextDouble();
+        System.out.print("Masukkan kecepatan (m/s): ");
+        double v = input.nextDouble();
+
+        double t = s / v;
+        System.out.println("Waktu yang diperlukan adalah: " + t + " detik");
+    }
 }
 ```
