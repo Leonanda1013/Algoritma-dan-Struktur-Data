@@ -251,5 +251,334 @@ System.out.println("-----percobaan 3-----");
 Tambahkan konstruktor pada class Segitiga tersebut yang berisi parameter int a, int t yang masing-masing digunakan untuk mengisikan atribut alas dan tinggi.<br>
 
 ```java
+package pertemuan3;
+
+public class Segitiga {
+    public int alas;
+    public int tinggi;
+
+    // Konstruktor dengan parameter int a (alas) dan int t (tinggi)
+    public Segitiga(int a, int t) {
+        alas = a;
+        tinggi = t;
+    }
+
+    public static void main(String[] args) {
+        // Membuat objek Segitiga dengan konstruktor yang baru
+        Segitiga sgt = new Segitiga(5, 8); // Misalnya, menginisialisasi alas=5 dan tinggi=8
+    }
+}
+```
+
+3. Tambahkan method hitungLuas() dan hitungKeliling() pada class Segitiga
+tersebut. Asumsi segitiga adalah segitiga siku-siku. (Hint: Anda dapat menggunakan bantuan library Math pada Java untuk mengkalkulasi sisi miring)
+
+```java
+package pertemuan3;
+
+public class Segitiga {
+    public int alas;
+    public int tinggi;
+
+    // Konstruktor dengan parameter int a (alas) dan int t (tinggi)
+    public Segitiga(int a, int t) {
+        alas = a;
+        tinggi = t;
+    }
+
+    // Method untuk menghitung luas segitiga
+    public double hitungLuas() {
+        return 0.5 * alas * tinggi;
+    }
+
+    // Method untuk menghitung keliling segitiga (asumsi segitiga siku-siku)
+    public double hitungKeliling() {
+        double sisiMiring = Math.sqrt(alas * alas + tinggi * tinggi);
+        return alas + tinggi + sisiMiring;
+    }
+
+    public static void main(String[] args) {
+        // Membuat objek Segitiga dengan konstruktor yang baru
+        Segitiga sgt = new Segitiga(5, 8); // Misalnya, menginisialisasi alas=5 dan tinggi=8
+
+        // Memanggil method hitungLuas() dan hitungKeliling() untuk objek segitiga
+        double luas = sgt.hitungLuas();
+        double keliling = sgt.hitungKeliling();
+
+        System.out.println("Luas segitiga: " + luas);
+        System.out.println("Keliling segitiga: " + keliling);
+    }
+}
+```
 
 
+4. Pada fungsi main, buat array Segitiga sgArray yang berisi 4 elemen, isikan masing-masing atributnya sebagai berikut:
+![!\[alt text\](image.png)](<SS/pertanyaan 3.4 .png>)
+
+```java
+public static void main(String[] args) {
+    // Membuat array sgArray yang berisi 4 objek Segitiga
+    Segitiga[] sgArray = new Segitiga[4];
+
+    // Menginisialisasi setiap elemen sgArray dengan objek Segitiga dan atribut yang ditentukan
+    sgArray[0] = new Segitiga(10, 4);
+    sgArray[1] = new Segitiga(20, 10);
+    sgArray[2] = new Segitiga(15, 6);
+    sgArray[3] = new Segitiga(25, 10);
+
+    // Memanggil method hitungLuas() dan hitungKeliling() untuk setiap objek Segitiga dalam sgArray
+    for (int i = 0; i < sgArray.length; i++) {
+        double luas = sgArray[i].hitungLuas();
+        double keliling = sgArray[i].hitungKeliling();
+        System.out.println("Segitiga ke-" + i);
+        System.out.println("Luas: " + luas);
+        System.out.println("Keliling: " + keliling);
+        System.out.println();
+    }
+}
+```
+
+5. Kemudian menggunakan looping, cetak luas dan keliling dengan cara memanggil method hitungLuas() dan hitungKeliling()
+```java
+public static void main(String[] args) {
+    // Membuat array sgArray yang berisi 4 objek Segitiga
+    Segitiga[] sgArray = new Segitiga[4];
+
+    // Menginisialisasi setiap elemen sgArray dengan objek Segitiga dan atribut yang ditentukan
+    sgArray[0] = new Segitiga(10, 4);
+    sgArray[1] = new Segitiga(20, 10);
+    sgArray[2] = new Segitiga(15, 6);
+    sgArray[3] = new Segitiga(25, 10);
+
+    // Looping untuk mencetak luas dan keliling setiap segitiga
+    for (int i = 0; i < sgArray.length; i++) {
+        double luas = sgArray[i].hitungLuas();
+        double keliling = sgArray[i].hitungKeliling();
+        System.out.println("Segitiga ke-" + i);
+        System.out.println("Luas: " + luas);
+        System.out.println("Keliling: " + keliling);
+        System.out.println();
+    }
+}
+```
+
+
+### 3.5 Latihan Praktikum
+
+1. Buatlah program yang dapat menghitung luas permukaan dan volume bangun ruang kerucut,
+limas segi empat sama sisi, dan bola. Buatlah 3 (tiga) class sesuai dengan jumlah jenis bangun
+ruang. Buatlah satu main class untuk membuat array of objects yang menginputkan atributatribut yang ada menggunakan konstruktor semua bangun ruang tersebut. Dengan ketentuan,<br>
+    a. Buat looping untuk menginputkan masing-masing atributnya, kemudian tampilkan luas permukaan dan volume dari tiap jenis bangun ruang tersebut.<br>
+    b. Pada kerucut, inputan untuk atribut hanya jari-jari dan sisi miring<br>
+    c. Pada limas segi empat sama sisi, inputan untuk atribut hanya panjang sisi alas dan tinggi limas<br>
+    d. Pada bola, inpuntan untuk atribut hanya jari-jari<br>
+
+    ```java
+    // Class untuk bangun ruang kerucut
+class Kerucut {
+    private double jariJari;
+    private double sisiMiring;
+
+    // Konstruktor
+    public Kerucut(double jariJari, double sisiMiring) {
+        this.jariJari = jariJari;
+        this.sisiMiring = sisiMiring;
+    }
+
+    // Method untuk menghitung volume kerucut
+    public double hitungVolume() {
+        return Math.PI * jariJari * jariJari * sisiMiring / 3;
+    }
+
+    // Method untuk menghitung luas permukaan kerucut
+    public double hitungLuasPermukaan() {
+        return Math.PI * jariJari * (jariJari + sisiMiring);
+    }
+}
+
+// Class untuk bangun ruang limas segi empat sama sisi
+class LimasSegiEmpat {
+    private double sisiAlas;
+    private double tinggi;
+
+    // Konstruktor
+    public LimasSegiEmpat(double sisiAlas, double tinggi) {
+        this.sisiAlas = sisiAlas;
+        this.tinggi = tinggi;
+    }
+
+    // Method untuk menghitung volume limas segi empat sama sisi
+    public double hitungVolume() {
+        return (sisiAlas * sisiAlas * tinggi) / 3;
+    }
+
+    // Method untuk menghitung luas permukaan limas segi empat sama sisi
+    public double hitungLuasPermukaan() {
+        return sisiAlas * sisiAlas + 4 * (sisiAlas * tinggi / 2);
+    }
+}
+
+// Class untuk bangun ruang bola
+class Bola {
+    private double jariJari;
+
+    // Konstruktor
+    public Bola(double jariJari) {
+        this.jariJari = jariJari;
+    }
+
+    // Method untuk menghitung volume bola
+    public double hitungVolume() {
+        return (4.0 / 3.0) * Math.PI * jariJari * jariJari * jariJari;
+    }
+
+    // Method untuk menghitung luas permukaan bola
+    public double hitungLuasPermukaan() {
+        return 4 * Math.PI * jariJari * jariJari;
+    }
+}
+
+// Main class
+public class BangunRuangMain {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Membuat array of objects untuk menyimpan bangun ruang
+        Object[] bangunRuangArray = new Object[3];
+
+        // Input atribut-atribut untuk tiap jenis bangun ruang
+        for (int i = 0; i < bangunRuangArray.length; i++) {
+            System.out.println("Masukkan atribut untuk bangun ruang ke-" + (i + 1));
+            if (i == 0) { // Kerucut
+                System.out.print("Masukkan jari-jari kerucut: ");
+                double jariJari = scanner.nextDouble();
+                System.out.print("Masukkan sisi miring kerucut: ");
+                double sisiMiring = scanner.nextDouble();
+                bangunRuangArray[i] = new Kerucut(jariJari, sisiMiring);
+            } else if (i == 1) { // Limas Segi Empat
+                System.out.print("Masukkan panjang sisi alas limas segi empat: ");
+                double sisiAlas = scanner.nextDouble();
+                System.out.print("Masukkan tinggi limas segi empat: ");
+                double tinggi = scanner.nextDouble();
+                bangunRuangArray[i] = new LimasSegiEmpat(sisiAlas, tinggi);
+            } else if (i == 2) { // Bola
+                System.out.print("Masukkan jari-jari bola: ");
+                double jariJari = scanner.nextDouble();
+                bangunRuangArray[i] = new Bola(jariJari);
+            }
+        }
+
+        // Menampilkan luas permukaan dan volume tiap jenis bangun ruang
+        for (int i = 0; i < bangunRuangArray.length; i++) {
+            if (i == 0) { // Kerucut
+                Kerucut kerucut = (Kerucut) bangunRuangArray[i];
+                System.out.println("\nBangun ruang ke-" + (i + 1) + ": Kerucut");
+                System.out.println("Luas Permukaan: " + kerucut.hitungLuasPermukaan());
+                System.out.println("Volume: " + kerucut.hitungVolume());
+            } else if (i == 1) { // Limas Segi Empat
+                LimasSegiEmpat limas = (LimasSegiEmpat) bangunRuangArray[i];
+                System.out.println("\nBangun ruang ke-" + (i + 1) + ": Limas Segi Empat Sama Sisi");
+                System.out.println("Luas Permukaan: " + limas.hitungLuasPermukaan());
+                System.out.println("Volume: " + limas.hitungVolume());
+            } else if (i == 2) { // Bola
+                Bola bola = (Bola) bangunRuangArray[i];
+                System.out.println("\nBangun ruang ke-" + (i + 1) + ": Bola");
+                System.out.println("Luas Permukaan: " + bola.hitungLuasPermukaan());
+                System.out.println("Volume: " + bola.hitungVolume());
+            }
+        }
+
+        scanner.close();
+    }
+}
+```
+
+#### output program
+![!\[alt text\](image.png)](SS/latihan1.png)
+
+
+
+2. 
+```java
+import java.util.Scanner;
+
+public class Latihan2main {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        Mahasiswa mahasiswa[] = new Mahasiswa[3];
+
+        for (int i = 0; i < mahasiswa.length; i++) {
+            mahasiswa[i] = new Mahasiswa();
+            System.out.println("Mahasiswa ke " + i);
+            System.out.print("Masukkan nama : ");
+            mahasiswa[i].nama = sc.nextLine();
+            System.out.print("Masukkan nim : ");
+            mahasiswa[i].nim = sc.nextLine();
+            System.out.print("Masukkan jenis kelamin : ");
+            mahasiswa[i].jenis_kelamin = sc.nextLine().toUpperCase().charAt(0);
+            System.out.print("Masukkan IPK : ");
+            mahasiswa[i].ipk = sc.nextDouble();
+            sc.nextLine();
+            System.out.println();
+        }
+
+        for (int i = 0; i < mahasiswa.length; i++) {
+            System.out.println("Mahasiswa ke " + i);
+            System.out.println("Nama : " + mahasiswa[i].nama);
+            System.out.println("NIM : " + mahasiswa[i].nim);
+            System.out.println("Jenis kelamin : " + mahasiswa[i].jenis_kelamin);
+            System.out.println("IPK : " + mahasiswa[i].ipk);
+            System.out.println();
+        }
+
+        Mahasiswa mhs = new Mahasiswa();
+        System.out.printf("Rata-rata IPK : %.2f\n", mhs.calcIPKAverage(mahasiswa));
+        mhs.showHighestIPK(mahasiswa);
+
+        sc.close();
+    }
+}
+```
+
+```java
+package pertemuan3;
+
+public class Mahasiswa {
+
+    String nama, nim;
+    char jenis_kelamin;
+    double ipk;
+
+    public double calcIPKAverage(Mahasiswa[] mhs) {
+        double totalIPK = 0;
+
+        for (Mahasiswa mahasiswa : mhs) {
+            totalIPK += mahasiswa.ipk;
+        }
+
+        return totalIPK / mhs.length;
+    }
+
+    public void showHighestIPK(Mahasiswa[] mhs) {
+
+        double highestIPK = 0;
+        Mahasiswa selectedMhs = null;
+
+        for (Mahasiswa mahasiswa : mhs) {
+            if (mahasiswa.ipk > highestIPK) {
+                highestIPK = mahasiswa.ipk;
+                selectedMhs = mahasiswa;
+            }
+        }
+
+        System.out.println("Mahasiswa dengan IPK tertinggi");
+        System.out.println("Nama : " + selectedMhs.nama);
+        System.out.println("NIM : " + selectedMhs.nim);
+        System.out.println("Jenis kelamin : " + selectedMhs.jenis_kelamin);
+        System.out.println("IPK : " + selectedMhs.ipk);
+    }
+} 
+```
