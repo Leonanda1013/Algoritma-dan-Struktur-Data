@@ -16,6 +16,7 @@ public class BukuMain29 {
 
         Buku29 bk2 = new Buku29("Self Reward", "Mheera ayesha", 160, 29, 59000);
         bk2.terjual(11);
+        bk2.halaman = 10;
         bk2.tampilInformasi();
 
         Buku29 bukuVincentius = new Buku29("Harry Potter", "Jk.Rowling", 1021, 17, 121000);
