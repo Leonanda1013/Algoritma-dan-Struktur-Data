@@ -19,7 +19,7 @@ public class BukuMain29 {
         bk2.halaman = 10;
         bk2.tampilInformasi();
 
-        Buku29 bukuVincentius = new Buku29("Harry Potter", "Jk.Rowling", 1021, 17, 121000);
+        Buku29 bukuVincentius = new Buku29("Harry Potter", "Jk.Rowling", 1021, 17);
         bukuVincentius.terjual(11);
         bukuVincentius.tampilInformasi();
 
