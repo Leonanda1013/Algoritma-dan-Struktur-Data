@@ -32,12 +32,13 @@ public class F1Standings {
 
         // Print driver list
         for (int i = 0; i < 10; i++) {
-            System.out.printf("\tID: %2d \t| \t%-20s || ID: %2d | %-20s%n",
+            System.out.printf("\tID: %2d \t| %-20s \t||\t ID: %2d | %-20s%n",
                     i + 1, drivers[i], i + 11, drivers[i + 10]);
         }
 
         // Input number of races
-        System.out.print("Enter number of races: ");
+        System.out.println();
+        System.out.print("Masukkan jumlah race dalam satu musim : ");
         int numRaces = scanner.nextInt();
         scanner.nextLine(); // consume newline
 
@@ -64,8 +65,9 @@ public class F1Standings {
 
             // Print standings after each race
             System.out.println("Standings after race " + race + ": ");
-            for (Driver driver : drivers) {
-                System.out.println(driver);
+            for (int i = 0; i < 10; i++) {
+                System.out.printf("\tID: %2d \t| %-20s \t||\t ID: %2d | %-20s%n",
+                        i + 1, drivers[i], i + 11, drivers[i + 10]);
             }
         }
 
