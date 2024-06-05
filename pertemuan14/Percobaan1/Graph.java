@@ -15,7 +15,7 @@ public class Graph {
 
     public void addEdge(int asal, int tujuan, int jarak) {
         list[asal].addFirst(tujuan, jarak);
-        list[tujuan].addFirst(asal, jarak);
+        // list[tujuan].addFirst(asal, jarak);
     }
 
     public void degree(int asal) throws Exception {
@@ -34,7 +34,8 @@ public class Graph {
         }
         System.out.println("InDegree dari Gedung " + (char) ('A' + asal) + ": " + totalIn);
         System.out.println("OutDegree dari Gedung " + (char) ('A' + asal) + ": " + totalOut);
-        System.out.println("Degree dari Gedung " + (char) ('A' + asal) + ": " + totalIn + totalOut);
+        // System.out.println("Degree dari Gedung " + (char) ('A' + asal) + ": " +
+        // totalIn + totalOut);
     }
 
     public void removeEdge(int asal, int tujuan) throws Exception {

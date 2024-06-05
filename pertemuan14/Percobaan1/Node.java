@@ -8,7 +8,8 @@ public class Node {
     Node(Node prev, int data, int jarak, Node next) {
         this.prev = prev;
         this.data = data;
-        this.next = next;
         this.jarak = jarak;
+        this.next = next;
+
     }
 }

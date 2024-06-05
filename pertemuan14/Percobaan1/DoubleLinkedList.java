@@ -89,7 +89,7 @@ public class DoubleLinkedList {
     }
 
     public int getJarak(int index) throws Exception {
-        if (isEmpty() || index <= size) {
+        if (isEmpty() || index >= size) {
             throw new Exception("Nilai indeks diluar batas");
         }
         Node tmp = head;

@@ -1,7 +1,7 @@
 package pertemuan14.Percobaan1;
 
 public class GraphMain28 {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         Graph gedung = new Graph(6);
         gedung.addEdge(0, 1, 50);
         gedung.addEdge(0, 2, 100);
