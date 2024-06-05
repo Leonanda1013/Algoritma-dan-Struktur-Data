@@ -66,4 +66,14 @@ public class Graph {
         }
         System.out.println("");
     }
+
+    // modifikasi
+    public boolean areNeighbors(int asal, int tujuan) throws Exception {
+        for (int i = 0; i < list[asal].size(); i++) {
+            if (list[asal].get(i) == tujuan) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
