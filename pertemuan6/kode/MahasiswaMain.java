@@ -1,6 +1,8 @@
-package pertemuan6;
+package pertemuan6.kode;
 
-public class Main {
+import java.util.Scanner;
+
+public class MahasiswaMain {
     public static void main(String[] args) {
         DaftarMahasiswaBerprestasi list = new DaftarMahasiswaBerprestasi();
         Mahasiswa m1 = new Mahasiswa("Nusa", 2017, 25, 3);
@@ -15,11 +17,19 @@ public class Main {
         list.tambah(m4);
         list.tambah(m5);
 
-        System.out.println("Data mahasiswa sebelum sorting = ");
+        System.out.println("Data Mahasiswa sebelum sorting = ");
         list.tampil();
 
-        System.out.println("Data mahasiswa setelah sorting desc bedararkan ipk");
+        System.out.println("Data Mahasiswa setelah sorting desc berdasarkan ipk");
         list.bubbleSort();
+        list.tampil();
+
+        System.out.println("Data Mahasiswa setelah sorting asc berdasarkan ipk");
+        list.selectionSort();
+        list.tampil();
+
+        System.out.println("Data Mahasiswa setelah sorting asc berdasarkan ipk");
+        list.insertionSort();
         list.tampil();
     }
 }
