@@ -1,4 +1,4 @@
-package pertemuan14.percobaan2;
+package pertemuan15.percobaan2;
 
 public class GraphMain {
     public static void main(String[] args) {

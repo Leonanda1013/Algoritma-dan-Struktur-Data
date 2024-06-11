@@ -1,4 +1,4 @@
-package pertemuan14.Percobaan1;
+package pertemuan15.Percobaan1;
 
 import java.util.Scanner;
 

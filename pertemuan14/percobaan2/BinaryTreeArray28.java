@@ -1,4 +1,4 @@
-package pertemuan13.percobaan2;
+package pertemuan14.percobaan2;
 
 public class BinaryTreeArray28 {
     int[] data;

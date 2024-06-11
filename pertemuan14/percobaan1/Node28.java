@@ -1,4 +1,4 @@
-package pertemuan13.percobaan1;
+package pertemuan14.percobaan1;
 
 public class Node28 {
     int data;
